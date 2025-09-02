@@ -17,6 +17,7 @@
     </include>
     <exclude>
       <file>src/Api/Providers/LogServiceProvider.php</file>
+      <file>src/Api/Providers/ApiProvider.php</file>
     </exclude>
   </coverage>
   <testsuites>
