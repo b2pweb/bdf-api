@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 class TestKernel extends Kernel
 {
@@ -20,6 +21,11 @@ class TestKernel extends Kernel
         $container->extension('framework', [
             'error_controller' => null,
         ]);
+    }
+
+    private function configureRoutes(RoutingConfigurator $routes): void
+    {
+        // No route
     }
 
     public function registerBundles(): iterable
