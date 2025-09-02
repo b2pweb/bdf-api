@@ -33,6 +33,7 @@
     "symfony/routing": "~6.0|~7.0",
     "phpunit/phpunit": "~9.5",
     "php-di/php-di": "~7.1",
-    "symfony/framework-bundle": "~6.0|~7.0"
+    "symfony/framework-bundle": "~6.0|~7.0",
+    "guzzlehttp/guzzle": "~5.3|~7.0"
   }
 }
