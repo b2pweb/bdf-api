@@ -132,5 +132,6 @@ class SoapServerFunctionalTest extends TestCase
         }
 
         $this->proc[] = $pid;
+        usleep(50000);
     }
 }
