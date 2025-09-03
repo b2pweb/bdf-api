@@ -59,6 +59,11 @@ class Application implements HttpKernelInterface, ContainerInterface, EventDispa
         throw new LogicException('The kernel is not a container');
     }
 
+    public function getKernel(): HttpKernelInterface
+    {
+        return $this->kernel;
+    }
+
     public function eventDispatcher(): EventDispatcherInterface
     {
         if (method_exists($this->kernel, 'eventDispatcher')) {
@@ -201,6 +206,8 @@ class Application implements HttpKernelInterface, ContainerInterface, EventDispa
         } else {
             $protocolFactory = new ProtocolFactory($this->getContainer());
         }
+
+        assert($protocolFactory instanceof ProtocolFactory);
 
         $protocol = $protocolFactory->create(
             $request->getApiProtocol(),

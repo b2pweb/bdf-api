@@ -16,6 +16,8 @@ use Exception;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+use Throwable;
+
 use function restore_error_handler;
 use function set_error_handler;
 
@@ -463,7 +465,7 @@ class ApiServer implements ServerInterface
             if ($this->fault) {
                 throw $this->fault;
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->doFault($this->fault($e->getMessage(), $e->getCode(), $e));
             return;
         }
@@ -529,19 +531,19 @@ class ApiServer implements ServerInterface
 
         try {
             $return = $callback(...array_values($event->getParameters()));
-        } catch (Exception $e) {
+
+            /** @var PostServiceEvent $event */
+            $event = $this->eventDispatcher->dispatch(
+                new PostServiceEvent($methodDefinition, $return),
+                ServerEvents::POST_SERVICE
+            );
+        } catch (Throwable $e) {
             $this->eventDispatcher->dispatch($event = new ServiceExceptionEvent($e));
 
             if ($e = $event->exception()) {
                 throw $e;
             }
         }
-
-        /** @var PostServiceEvent $event */
-        $event = $this->eventDispatcher->dispatch(
-            new PostServiceEvent($methodDefinition, $return),
-            ServerEvents::POST_SERVICE
-        );
 
         return $event->getReturnValue();
     }
