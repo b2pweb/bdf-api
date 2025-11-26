@@ -6,6 +6,8 @@ use Bdf\Fixtures\TestApplication;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
+use function usleep;
+
 class JsonRpcServerFunctionalTest extends TestCase
 {
     private TestApplication $app;
@@ -21,6 +23,7 @@ class JsonRpcServerFunctionalTest extends TestCase
     {
         foreach ($this->proc as $pid) {
             @posix_kill($pid, SIGKILL);
+            usleep(50000);
         }
 
         $this->proc = [];
