@@ -53,9 +53,9 @@ class TypePropertyBuilder
     /**
      * TypePropertyBuilder constructor.
      *
-     * @param Registry $registry
+     * @param Registry|null $registry
      */
-    public function __construct(Registry $registry = null)
+    public function __construct(?Registry $registry = null)
     {
         $this->registry = $registry ?: new Registry();
     }

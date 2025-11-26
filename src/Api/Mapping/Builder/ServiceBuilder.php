@@ -57,11 +57,11 @@ class ServiceBuilder
     /**
      * @param string $name
      * @param string $class
-     * @param callable $initializer
+     * @param callable|null $initializer
      *
      * @return $this
      */
-    public function type($name, $class, callable $initializer = null)
+    public function type($name, $class, ?callable $initializer = null)
     {
         $builder = new TypeBuilder($this->registry);
 
@@ -79,11 +79,11 @@ class ServiceBuilder
 
     /**
      * @param string $name
-     * @param callable $initializer
+     * @param callable|null $initializer
      *
      * @return $this
      */
-    public function method($name, callable $initializer = null)
+    public function method($name, ?callable $initializer = null)
     {
         $builder = new MethodBuilder($this->registry);
 

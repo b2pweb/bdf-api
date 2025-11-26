@@ -65,7 +65,7 @@ class MapperTest extends TestCase
 
         $refl = (new \ReflectionProperty($mapper, 'context'));
 
-        $refl->setAccessible(true);
+        PHP_VERSION_ID >= 80100 or $refl->setAccessible(true);
         $refl->setValue($mapper, new Context(new Container()));
 
         $this->assertEquals(10, $mapper->mapMethodReturn(new MethodDefinition('test'), 5));

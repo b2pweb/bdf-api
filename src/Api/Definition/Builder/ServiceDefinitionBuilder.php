@@ -93,11 +93,11 @@ class ServiceDefinitionBuilder
      * Add a method
      *
      * @param string $name
-     * @param callable $initializer
+     * @param callable|null $initializer
      *
      * @return $this
      */
-    public function method($name, callable $initializer = null)
+    public function method($name, ?callable $initializer = null)
     {
         $builder = new MethodDefinitionBuilder();
 
@@ -116,11 +116,11 @@ class ServiceDefinitionBuilder
      * Add a complex type
      *
      * @param string $name
-     * @param callable $initializer
+     * @param callable|null $initializer
      *
      * @return $this
      */
-    public function complexType($name, callable $initializer = null)
+    public function complexType($name, ?callable $initializer = null)
     {
         $builder = new ComplexTypeDefinitionBuilder();
 
@@ -190,7 +190,7 @@ class ServiceDefinitionBuilder
      */
     protected function isTypeBuilt($typeName)
     {
-        return isset($this->buildedTypes[$typeName]);
+        return $typeName !== null && isset($this->buildedTypes[$typeName]);
     }
 
     /**
@@ -220,6 +220,6 @@ class ServiceDefinitionBuilder
      */
     protected function isComplexType($typeName)
     {
-        return isset($this->types[$typeName]);
+        return $typeName !== null && isset($this->types[$typeName]);
     }
 }

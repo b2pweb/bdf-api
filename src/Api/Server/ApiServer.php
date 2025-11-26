@@ -401,7 +401,7 @@ class ApiServer implements ServerInterface
     /**
      * {@inheritdoc}
      */
-    public function handle(Request\RequestInterface $request = null)
+    public function handle(?Request\RequestInterface $request = null)
     {
         if ($request == null) {
             $request = $this->getRequest();

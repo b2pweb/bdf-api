@@ -63,9 +63,9 @@ class MethodDefinitionTest extends TestCase
         }
 
         if (array_key_exists('throwingException', $properties)) {
-            $definition->setThrowingException((boolean) $properties['throwingException']);
+            $definition->setThrowingException((bool) $properties['throwingException']);
 
-            $this->assertEquals((boolean) $properties['throwingException'], $definition->isThrowingException());
+            $this->assertEquals((bool) $properties['throwingException'], $definition->isThrowingException());
         }
     }
 

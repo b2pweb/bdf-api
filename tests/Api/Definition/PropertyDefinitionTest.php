@@ -50,13 +50,13 @@ class PropertyDefinitionTest extends TestCase
         if (array_key_exists('nillable', $properties)) {
             $definition->setNillable($properties['nillable']);
 
-            $this->assertEquals((boolean) $properties['nillable'], $definition->isNillable());
+            $this->assertEquals((bool) $properties['nillable'], $definition->isNillable());
         }
 
         if (array_key_exists('optional', $properties)) {
             $definition->setOptional($properties['optional']);
 
-            $this->assertEquals((boolean) $properties['optional'], $definition->isOptional());
+            $this->assertEquals((bool) $properties['optional'], $definition->isOptional());
         }
     }
 

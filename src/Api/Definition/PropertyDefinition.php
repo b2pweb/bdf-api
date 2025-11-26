@@ -87,7 +87,7 @@ class PropertyDefinition
      */
     public function isNillable()
     {
-        return (boolean) $this->nillable;
+        return (bool) $this->nillable;
     }
 
     /**
@@ -107,7 +107,7 @@ class PropertyDefinition
      */
     public function isOptional()
     {
-        return (boolean) $this->optional;
+        return (bool) $this->optional;
     }
 
     /**

@@ -64,7 +64,7 @@ class ParameterDefinitionTest extends TestCase
         if (array_key_exists('optional', $properties)) {
             $definition->setOptional($properties['optional']);
 
-            $this->assertEquals((boolean) $properties['optional'], $definition->isOptional());
+            $this->assertEquals((bool) $properties['optional'], $definition->isOptional());
         }
 
         if (array_key_exists('description', $properties)) {

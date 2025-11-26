@@ -105,9 +105,9 @@ interface ServerInterface
     public function setAutoEmitResponse($flag);
 
     /**
-     * @param Request\RequestInterface $request
-     * 
+     * @param Request\RequestInterface|null $request
+     *
      * @return Response\ResponseInterface|null
      */
-    public function handle(Request\RequestInterface $request = null);
+    public function handle(?Request\RequestInterface $request = null);
 }
