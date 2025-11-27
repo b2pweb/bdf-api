@@ -15,9 +15,9 @@
   },
   "minimum-stability": "dev",
   "conflict": {
-    "b2p/bdf-api": "*",
-    "b2p/bdf-soap": "*",
-    "b2p/bdf-jsonrpc": "*"
+    "b2p/bdf-api": "<1.9",
+    "b2p/bdf-soap": "<1.9",
+    "b2p/bdf-jsonrpc": "<1.9"
   },
   "require": {
     "php": "~8.1",
