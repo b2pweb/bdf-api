@@ -26,19 +26,19 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "psr/log": "~1.0|~2.0|~3.0",
-    "symfony/http-foundation": "~5.4|~6.0|~7.0",
-    "symfony/event-dispatcher": "~5.4|~6.0|~7.0",
-    "symfony/http-kernel": "~5.4|~6.0|~7.0",
-    "symfony/validator": "~5.4|~6.0|~7.0",
+    "symfony/http-foundation": "~5.4|~6.0|~7.0|~8.0",
+    "symfony/event-dispatcher": "~5.4|~6.0|~7.0|~8.0",
+    "symfony/http-kernel": "~5.4|~6.0|~7.0|~8.0",
+    "symfony/validator": "~5.4|~6.0|~7.0|~8.0",
     "psr/simple-cache": "~1.0|~2.0|~3.0",
     "psr/container": "~1.0|~2.0",
     "econea/nusoap": "~0.9"
   },
   "require-dev": {
-    "symfony/routing": "~5.4|~6.0|~7.0",
+    "symfony/routing": "~5.4|~6.0|~7.0|~8.0",
     "phpunit/phpunit": "~9.5",
     "php-di/php-di": "~7.1",
-    "symfony/framework-bundle": "~5.4|~6.0|~7.0",
+    "symfony/framework-bundle": "~5.4|~6.0|~7.0|~8.0",
     "guzzlehttp/guzzle": "~5.3|~7.0"
   }
 }

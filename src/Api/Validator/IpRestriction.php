@@ -4,6 +4,8 @@ namespace Bdf\Api\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
+use function array_key_exists;
+
 /**
  * IpRestriction
  *
@@ -14,20 +16,17 @@ class IpRestriction extends Constraint
 {
     public $message = 'This ip is not allowed.';
     public $allowedIps = [];
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultOption(): string
+
+    public function __construct(array $allowedIps, ?string $message = null, ?array $groups = null, mixed $payload = null)
     {
-        return 'allowedIps';
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function getRequiredOptions(): array
-    {
-        return ['allowedIps'];
+        parent::__construct(null, $groups, $payload);
+
+        if (array_key_exists('allowedIps', $allowedIps)) {
+            $this->allowedIps = $allowedIps['allowedIps'];
+            $this->message = $allowedIps['message'] ?? $this->message;
+        } else {
+            $this->allowedIps = $allowedIps;
+            $this->message = $message ?? $this->message;
+        }
     }
 }
